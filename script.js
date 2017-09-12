@@ -88,6 +88,7 @@ class Sport extends Car {
 
 class Truck extends Factory {
   constructor(model, color, engineSize, hitch, bed, navigation){
+    super();
     this.model = model;
     this.color = color;
     this.engineSize = engineSize;
@@ -174,24 +175,37 @@ miataRf.customerBuild('black',{color:'black', trim:"Grand Touring", model:'Miata
 // Write your 'trailBlazer' instance below:
 // Write your code below:
 
-
-
-
+class Trailblazer extends Truck {
+  constructor(model, color, engineSize, hitch, bed, navigation){
+    super();
+    this.model = 'Trail Blazer';
+    this.color = 'blue';
+    this.trim = 'Sport';
+    this.engineSize = 8;
+    this.hitch = true;
+    this.bed = 'standard';
+    this.navigation = true;
+    this.doors = 2;
+  }
+}
 
 // Print trailBlazer. It should have all the above properties. Plus, the extended warranty.
 // Write your code below:
+let trailblazer = new Trailblazer();
+console.log(trailblazer);
 
 
 
 
 // Print trailBlazer, calling massBuid(). It should build 35000 trucks.
 // It should print: "Building 35000 blue Sport Trail Blazer's."
-// Wrint your code below:
+// Write your code below:
 
-
-
+trailblazer.massBuild(35000,{model:'Trail Blazer',color:'blue', trim:'Sport'})
 
 
 // Print trailBlazer, calling customerBuild(). It should build a red Trail Blazer with the following options, as an array: seat warmers, tinted windows, fog lamps.
 // It should print: "Building one red Sport Trail Blazer with the following options: seat warmers, tinted windows, fog lamps"
 // Write your code below:
+
+trailblazer.customerBuild('red',{color:'red',trim:'Sport',model:'Trail Blazer',options:`seat warmers, tinted windows, fog lamps`})
